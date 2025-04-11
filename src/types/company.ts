@@ -1,6 +1,7 @@
 export interface POC {
   name: string;
   title: string;
+  role: string;
   email: string;
 }
 

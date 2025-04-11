@@ -20,6 +20,7 @@ const isPOCArray = (value: unknown): value is POC[] => {
     firstItem !== null &&
     'name' in firstItem &&
     'title' in firstItem &&
+    'role' in firstItem &&
     'email' in firstItem
   );
 };
@@ -75,6 +76,7 @@ const ProfileField: React.FC<ProfileFieldProps> = ({
     const pocFields = [
       { key: 'name', label: 'Name', type: 'text' },
       { key: 'title', label: 'Title', type: 'text' },
+      { key: 'role', label: 'Role', type: 'text' },
       { key: 'email', label: 'Email', type: 'email' }
     ] as const;
     
@@ -111,7 +113,7 @@ const ProfileField: React.FC<ProfileFieldProps> = ({
         <button
           type="button"
           onClick={() => {
-            const newPocs = [...pocs, { name: '', title: '', email: '' }];
+            const newPocs = [...pocs, { name: '', title: '', role: '', email: '' }];
             onUpdate(field, newPocs);
           }}
           className="text-indigo-600 hover:text-indigo-800"
